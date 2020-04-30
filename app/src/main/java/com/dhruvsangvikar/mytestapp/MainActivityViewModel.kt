@@ -14,6 +14,8 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     val viewState = MediatorLiveData<ViewState>()
 
     init {
+        viewState.value = ViewState(0)
+
         viewState.addSource(counter.counterValueStream) { value ->
             viewState.value = viewState.value?.copy(count = value)
         }
@@ -24,5 +26,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         counter.setInitialValue(0)
     }
 
-    // increment logic
+    fun incrementCounter() {
+        counter.increment()
+    }
 }

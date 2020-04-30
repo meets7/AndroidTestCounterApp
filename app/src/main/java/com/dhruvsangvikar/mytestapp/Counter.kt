@@ -1,16 +1,16 @@
 package com.dhruvsangvikar.mytestapp
 
-import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 
 class Counter {
 
-    val counterValueStream = MediatorLiveData<Int>()
+    val counterValueStream = MutableLiveData<Int>()
 
     fun increment(){
-        // your definition
+        // your code
     }
 
     fun setInitialValue(value: Int) {
-        counterValueStream.value = value
+        counterValueStream.postValue(value)
     }
 }
